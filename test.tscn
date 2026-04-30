@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://b6roe5jp5fsn2"]
+[gd_scene load_steps=2 format=3 uid="uid://b6roe5jp5fsn2"]
+
+[ext_resource type="Script" uid="uid://cqdeyf7r8gayh" path="res://test.gd" id="1_37kl0"]
 
 [node name="Test" type="Node2D"]
+script = ExtResource("1_37kl0")
 
 [node name="Player cards" type="Node2D" parent="."]
 position = Vector2(0, 225)

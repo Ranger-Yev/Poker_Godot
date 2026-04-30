@@ -1,11 +1,8 @@
-[gd_scene load_steps=58 format=3 uid="uid://dfuc6u71k3f06"]
+[gd_scene load_steps=57 format=3 uid="uid://dfuc6u71k3f06"]
 
 [ext_resource type="Texture2D" uid="uid://b6qjnplgpkur6" path="res://Media/allCards.png" id="1_kikvd"]
 [ext_resource type="Script" uid="uid://qy2qf5jft6eq" path="res://card.gd" id="1_rjlel"]
 [ext_resource type="Texture2D" uid="uid://cpqns47m7dfxl" path="res://Media/backOfCard.png" id="3_q5obu"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kikvd"]
-size = Vector2(69, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rjlel"]
 atlas = ExtResource("1_kikvd")
@@ -402,12 +399,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Card" type="CharacterBody2D"]
+[node name="Card" type="Node2D"]
 script = ExtResource("1_rjlel")
-
-[node name="WarningDeflector" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_kikvd")
 
 [node name="CardSelector" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_sqanm")
