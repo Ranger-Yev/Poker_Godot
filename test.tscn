@@ -16,12 +16,18 @@ position = Vector2(50, 0)
 [node name="The Middle" type="Node2D" parent="."]
 
 [node name="Card" parent="The Middle" instance=ExtResource("1_37kl0")]
-position = Vector2(-100, 0)
+position = Vector2(-200, 0)
 
 [node name="Card2" parent="The Middle" instance=ExtResource("1_37kl0")]
+position = Vector2(-100, 0)
 
 [node name="Card3" parent="The Middle" instance=ExtResource("1_37kl0")]
+
+[node name="Card4" parent="The Middle" instance=ExtResource("1_37kl0")]
 position = Vector2(100, 0)
+
+[node name="Card5" parent="The Middle" instance=ExtResource("1_37kl0")]
+position = Vector2(200, 0)
 
 [node name="Dealer cards" type="Node2D" parent="."]
 position = Vector2(0, -225)

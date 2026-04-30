@@ -32,9 +32,14 @@ func random_card() -> void:
 		$CardSelector.play(suit)
 		$CardSelector.pause()
 		$CardSelector.set_frame(value)
+		$CardSelector.scale = Vector2(1, 1)
 		$Timer.start()
 		change = false
 
+func hide_card() -> void:
+	$CardSelector.play("Hidden")
+	$CardSelector.pause()
+	$CardSelector.scale = Vector2(0.1, 0.1)
 
 func _on_timer_timeout() -> void:
 	change = true

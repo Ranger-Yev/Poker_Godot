@@ -1,7 +1,8 @@
-[gd_scene load_steps=57 format=3 uid="uid://dfuc6u71k3f06"]
+[gd_scene load_steps=58 format=3 uid="uid://dfuc6u71k3f06"]
 
 [ext_resource type="Texture2D" uid="uid://b6qjnplgpkur6" path="res://Media/allCards.png" id="1_kikvd"]
 [ext_resource type="Script" uid="uid://qy2qf5jft6eq" path="res://card.gd" id="1_rjlel"]
+[ext_resource type="Texture2D" uid="uid://cpqns47m7dfxl" path="res://Media/backOfCard.png" id="3_q5obu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kikvd"]
 size = Vector2(69, 96)
@@ -350,6 +351,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("3_q5obu")
+}],
+"loop": true,
+"name": &"Hidden",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_2nfho")
 }, {
 "duration": 1.0,
@@ -402,8 +411,7 @@ shape = SubResource("RectangleShape2D_kikvd")
 
 [node name="CardSelector" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_sqanm")
-animation = &"Diamonds"
-frame_progress = 0.42384934
+animation = &"Hearts"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
