@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var rng = RandomNumberGenerator.new()
 var change = true
+var suits = ["Hearts", "Diamonds", "Clubs", "Spades"]
 
 func _ready():
 	random_card()
@@ -14,22 +15,9 @@ func random_card() -> void:
 	randomize()
 	var value = rng.randi_range(0, 12)
 	randomize()
-	var suit = rng.randi_range(1,4)
 	
-	# Clubs, Diamonds, Hearts, Spades = 1, 2, 3, 4
 	if change:
-		match suit:
-			1:
-				suit = "Clubs"
-			2:
-				suit = "Diamonds"
-			3:
-				suit = "Hearts"
-			4:
-				suit = "Spades"
-			
-		
-		$CardSelector.play(suit)
+		$CardSelector.play(suits.pick_random())
 		$CardSelector.pause()
 		$CardSelector.set_frame(value)
 		$CardSelector.scale = Vector2(1, 1)

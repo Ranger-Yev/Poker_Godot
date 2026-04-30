@@ -1,42 +1,45 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6roe5jp5fsn2"]
-
-[ext_resource type="PackedScene" uid="uid://dfuc6u71k3f06" path="res://card.tscn" id="1_37kl0"]
+[gd_scene format=3 uid="uid://b6roe5jp5fsn2"]
 
 [node name="Test" type="Node2D"]
 
 [node name="Player cards" type="Node2D" parent="."]
 position = Vector2(0, 225)
+rotation = -3.1415925
 
-[node name="Card" parent="Player cards" instance=ExtResource("1_37kl0")]
-position = Vector2(-50, 0)
-
-[node name="Card2" parent="Player cards" instance=ExtResource("1_37kl0")]
+[node name="P1" type="Marker2D" parent="Player cards"]
 position = Vector2(50, 0)
+rotation = 3.1415925
+
+[node name="P2" type="Marker2D" parent="Player cards"]
+position = Vector2(-50, 0)
+rotation = 3.1415925
 
 [node name="The Middle" type="Node2D" parent="."]
 
-[node name="Card" parent="The Middle" instance=ExtResource("1_37kl0")]
+[node name="Card 1" type="Marker2D" parent="The Middle"]
 position = Vector2(-200, 0)
 
-[node name="Card2" parent="The Middle" instance=ExtResource("1_37kl0")]
+[node name="Card 2" type="Marker2D" parent="The Middle"]
 position = Vector2(-100, 0)
 
-[node name="Card3" parent="The Middle" instance=ExtResource("1_37kl0")]
+[node name="Card 3" type="Marker2D" parent="The Middle"]
 
-[node name="Card4" parent="The Middle" instance=ExtResource("1_37kl0")]
+[node name="Card 4" type="Marker2D" parent="The Middle"]
 position = Vector2(100, 0)
 
-[node name="Card5" parent="The Middle" instance=ExtResource("1_37kl0")]
+[node name="Card 5" type="Marker2D" parent="The Middle"]
 position = Vector2(200, 0)
 
 [node name="Dealer cards" type="Node2D" parent="."]
 position = Vector2(0, -225)
 rotation = 3.1415927
 
-[node name="Card" parent="Dealer cards" instance=ExtResource("1_37kl0")]
-position = Vector2(-50, 0)
-
-[node name="Card2" parent="Dealer cards" instance=ExtResource("1_37kl0")]
+[node name="D1" type="Marker2D" parent="Dealer cards"]
 position = Vector2(50, 0)
+rotation = 3.1415925
+
+[node name="D2" type="Marker2D" parent="Dealer cards"]
+position = Vector2(-50, 0)
+rotation = 3.1415925
 
 [node name="Camera2D" type="Camera2D" parent="."]
