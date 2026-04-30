@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6roe5jp5fsn2"]
+
+[ext_resource type="PackedScene" uid="uid://dfuc6u71k3f06" path="res://card.tscn" id="1_37kl0"]
+
+[node name="Test" type="Node2D"]
+
+[node name="Player cards" type="Node2D" parent="."]
+position = Vector2(0, 225)
+
+[node name="Card" parent="Player cards" instance=ExtResource("1_37kl0")]
+position = Vector2(-50, 0)
+
+[node name="Card2" parent="Player cards" instance=ExtResource("1_37kl0")]
+position = Vector2(50, 0)
+
+[node name="The Middle" type="Node2D" parent="."]
+
+[node name="Card" parent="The Middle" instance=ExtResource("1_37kl0")]
+position = Vector2(-100, 0)
+
+[node name="Card2" parent="The Middle" instance=ExtResource("1_37kl0")]
+
+[node name="Card3" parent="The Middle" instance=ExtResource("1_37kl0")]
+position = Vector2(100, 0)
+
+[node name="Dealer cards" type="Node2D" parent="."]
+position = Vector2(0, -225)
+rotation = 3.1415927
+
+[node name="Card" parent="Dealer cards" instance=ExtResource("1_37kl0")]
+position = Vector2(-50, 0)
+
+[node name="Card2" parent="Dealer cards" instance=ExtResource("1_37kl0")]
+position = Vector2(50, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
