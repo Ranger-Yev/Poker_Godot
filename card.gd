@@ -36,5 +36,9 @@ func hide_card() -> void:
 func get_value() -> int:
 	return value
 
+func get_suit() -> String:
+	return suit
+
+
 func _on_timer_timeout() -> void:
 	change = true
