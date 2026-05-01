@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 	pass
 	
 
-func random_card() -> void:
+func random_card() -> void: 
 	randomize()
 	value = rng.randi_range(0, 12)
 	randomize()

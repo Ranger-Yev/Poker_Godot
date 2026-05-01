@@ -46,3 +46,5 @@ position = Vector2(-50, 0)
 rotation = 3.1415925
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
