@@ -29,6 +29,10 @@ func _ready() -> void:
 func setup() -> void:
 	var card_pos = $"Player cards".get_children()
 	
+	player = []
+	dealer = []
+	middle = []
+	
 	for i in 2:
 		var card = card_scene.instantiate() as Node2D
 		card.position = card_pos[i].position
@@ -48,7 +52,7 @@ func setup() -> void:
 		card.position = card_pos[i].position
 		$"The Middle".add_child(card)
 		middle.append(card)
-
+	
 func check_hand(h) -> void: # h is the hand of the player you want to check
 	hand = h + middle
 	var flush = is_flush(h)
@@ -70,3 +74,7 @@ func is_straight() -> bool:
 	
 func is_any_pair() -> bool:
 	return false
+
+func print_all_suits(h) -> void:
+	for i in h:
+		print(i.get_suit())
