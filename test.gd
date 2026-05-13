@@ -6,9 +6,23 @@ var player = []
 var middle = []
 var hand = []
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("ui_accept"):
+		setup()
+		print("Player")
+		check_hand(player)
+		
+		print("Dealer")
+		check_hand(dealer)
+
 func _ready() -> void:
 	setup()
+	print("Player")
 	check_hand(player)
+	
+	print("Dealer")
+	check_hand(dealer)
+	
 		
 func setup() -> void:
 	var card_pos = $"Player cards".get_children()
@@ -37,26 +51,13 @@ func setup() -> void:
 		middle.append(suit_to_value)
 
 func check_hand(h) -> void: # h is the hand of the player you want to check
-	for i in middle:
-		i[0] = "Hearts"
 	hand = [h, middle]
 	var flush = is_flush(h)
 	if flush:
 		print("Has flush")
 
 func is_flush(h) -> bool:
-	var player_has_flush = false
-	var same_suit = 0
-	for i in suits:
-		var suit_for_flush = i
-		for x in hand:
-			if i == x[0]:
-				same_suit += 1
-		for x in h:
-			if String(x[0]) == suit_for_flush:
-				player_has_flush = true
-		if same_suit >= 5 and player_has_flush:
-			return true
+	
 	return false
 	
 func is_straight() -> bool:
