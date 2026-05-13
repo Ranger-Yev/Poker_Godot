@@ -5,22 +5,24 @@ var dealer = []
 var player = []
 var middle = []
 var hand = []
+var p_value = 0
+var d_value = 0
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		setup()
-		print("Player")
+		print("\n" + "Player" + "\n")
 		check_hand(player)
 		
-		print("Dealer")
+		print("\n" + "Dealer" + "\n")
 		check_hand(dealer)
 
 func _ready() -> void:
 	setup()
-	print("Player")
+	print("\n" + "Player" + "\n")
 	check_hand(player)
 	
-	print("Dealer")
+	print("\n" + "Dealer" + "\n")
 	check_hand(dealer)
 	
 		
@@ -31,33 +33,36 @@ func setup() -> void:
 		var card = card_scene.instantiate() as Node2D
 		card.position = card_pos[i].position
 		$"Player cards".add_child(card)
-		var suit_to_value = [card.get_suit(), card.get_value() + 1]
-		player.append(suit_to_value)
+		player.append(card)
 		
 	card_pos = $"Dealer cards".get_children()
 	for i in 2:
 		var card = card_scene.instantiate() as Node2D
 		card.position = card_pos[i].position
 		$"Dealer cards".add_child(card)
-		var suit_to_value = [card.get_suit(), card.get_value() + 1]
-		dealer.append(suit_to_value)
+		dealer.append(card)
 	
 	card_pos = $"The Middle".get_children()
 	for i in 5:
 		var card = card_scene.instantiate() as Node2D
 		card.position = card_pos[i].position
 		$"The Middle".add_child(card)
-		var suit_to_value = [card.get_suit(), card.get_value() + 1]
-		middle.append(suit_to_value)
+		middle.append(card)
 
 func check_hand(h) -> void: # h is the hand of the player you want to check
-	hand = [h, middle]
+	hand = h + middle
 	var flush = is_flush(h)
 	if flush:
 		print("Has flush")
 
 func is_flush(h) -> bool:
-	
+	for suit in suits:
+		var suit_for_flush = 0
+		for card in h:
+			if suit == card.get_suit():
+				suit_for_flush += 1
+		if suit_for_flush > 4:
+			return true 
 	return false
 	
 func is_straight() -> bool:
