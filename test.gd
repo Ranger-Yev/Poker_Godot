@@ -104,10 +104,10 @@ func print_all_suits(arr) -> void: # use arrays with card objects only!
 	for i in arr:
 		print(i.get_suit())
 
-func sort(hand) -> Array:
-	var sorted = []
-	return sorted
-
 func print_all_values(arr) -> void: # use arrays with card objects only!
 	for i in arr:
 		print(i.get_value())
+
+func sort(hand) -> Array: # use arrays with card objects only!
+	var sorted = []
+	return sorted
