@@ -70,6 +70,9 @@ func setup() -> void:
 	
 func check_hand(char_hand) -> String: # char hand is the hand of the player you want to check
 	hand = char_hand[0] + middle
+	print_all_values(hand)
+	sort(hand)
+	print_all_values(hand)
 	var flush = is_flush(hand, char_hand)
 	if flush:
 		return "flush"
@@ -90,11 +93,6 @@ func is_flush(hand_to_check, og_hand) -> bool: # hand to check is the combo of t
 	return false
 	
 func is_straight(hand_to_check, og_hand) -> bool: # 
-	for card in hand_to_check:
-		var sequence = 1
-		var index = 0
-		while sequence:
-			pass
 	return false
 	
 func is_any_pair() -> int:
@@ -107,7 +105,8 @@ func print_all_suits(arr) -> void: # use arrays with card objects only!
 func print_all_values(arr) -> void: # use arrays with card objects only!
 	for i in arr:
 		print(i.get_value())
-
-func sort(hand) -> Array: # use arrays with card objects only!
-	var sorted = []
+	
+func sort(arr) -> Array: # standard insertion sort, use arrays with card objects only!
+	var sorted = [arr[0]]
+	
 	return sorted
