@@ -39,6 +39,8 @@ func get_value() -> int:
 func get_suit() -> String:
 	return suit
 
+func set_value(val) -> void:
+	value = val
 
 func _on_timer_timeout() -> void:
 	change = true

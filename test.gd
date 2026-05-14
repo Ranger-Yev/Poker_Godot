@@ -89,7 +89,12 @@ func is_flush(hand_to_check, og_hand) -> bool: # hand to check is the combo of t
 		biggest_cards = []
 	return false
 	
-func is_straight() -> bool:
+func is_straight(hand_to_check, og_hand) -> bool: # 
+	for card in hand_to_check:
+		var sequence = 1
+		var index = 0
+		while sequence:
+			pass
 	return false
 	
 func is_any_pair() -> int:
@@ -98,6 +103,10 @@ func is_any_pair() -> int:
 func print_all_suits(arr) -> void: # use arrays with card objects only!
 	for i in arr:
 		print(i.get_suit())
+
+func sort(hand) -> Array:
+	var sorted = []
+	return sorted
 
 func print_all_values(arr) -> void: # use arrays with card objects only!
 	for i in arr:
