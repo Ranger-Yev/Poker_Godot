@@ -34,7 +34,7 @@ func hide_card() -> void:
 	$CardSelector.scale = Vector2(0.1, 0.1)
 
 func get_value() -> int:
-	return value
+	return value + 1
 
 func get_suit() -> String:
 	return suit
