@@ -55,7 +55,7 @@ func setup() -> void:
 	
 func check_hand(h) -> void: # h is the hand of the player you want to check
 	hand = h + middle
-	var flush = is_flush(h)
+	var flush = is_flush(hand)
 	if flush:
 		print("Has flush")
 
