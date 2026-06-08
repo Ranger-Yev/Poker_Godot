@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://dfuc6u71k3f06"]
+[gd_scene format=3 uid="uid://dfuc6u71k3f06"]
 
 [ext_resource type="Texture2D" uid="uid://b6qjnplgpkur6" path="res://Media/allCards.png" id="1_kikvd"]
 [ext_resource type="Script" uid="uid://qy2qf5jft6eq" path="res://card.gd" id="1_rjlel"]
@@ -399,14 +399,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Card" type="Node2D"]
+[node name="Card" type="Node2D" unique_id=606512418]
 script = ExtResource("1_rjlel")
 
-[node name="CardSelector" type="AnimatedSprite2D" parent="."]
+[node name="CardSelector" type="AnimatedSprite2D" parent="." unique_id=1509303516]
 sprite_frames = SubResource("SpriteFrames_sqanm")
 animation = &"Hearts"
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=703991507]
 wait_time = 0.5
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

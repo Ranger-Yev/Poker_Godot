@@ -1,50 +1,50 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6roe5jp5fsn2"]
+[gd_scene format=3 uid="uid://b6roe5jp5fsn2"]
 
 [ext_resource type="Script" uid="uid://cqdeyf7r8gayh" path="res://test.gd" id="1_37kl0"]
 
-[node name="Test" type="Node2D"]
+[node name="Test" type="Node2D" unique_id=1187182066]
 script = ExtResource("1_37kl0")
 
-[node name="Player cards" type="Node2D" parent="."]
+[node name="Player cards" type="Node2D" parent="." unique_id=279770166]
 position = Vector2(0, 225)
 rotation = -3.1415925
 
-[node name="P1" type="Marker2D" parent="Player cards"]
+[node name="P1" type="Marker2D" parent="Player cards" unique_id=999306129]
 position = Vector2(50, 0)
 rotation = 3.1415925
 
-[node name="P2" type="Marker2D" parent="Player cards"]
+[node name="P2" type="Marker2D" parent="Player cards" unique_id=1920055329]
 position = Vector2(-50, 0)
 rotation = 3.1415925
 
-[node name="The Middle" type="Node2D" parent="."]
+[node name="The Middle" type="Node2D" parent="." unique_id=1399765134]
 
-[node name="Card 1" type="Marker2D" parent="The Middle"]
+[node name="Card 1" type="Marker2D" parent="The Middle" unique_id=1060217756]
 position = Vector2(-200, 0)
 
-[node name="Card 2" type="Marker2D" parent="The Middle"]
+[node name="Card 2" type="Marker2D" parent="The Middle" unique_id=2055475485]
 position = Vector2(-100, 0)
 
-[node name="Card 3" type="Marker2D" parent="The Middle"]
+[node name="Card 3" type="Marker2D" parent="The Middle" unique_id=236627721]
 
-[node name="Card 4" type="Marker2D" parent="The Middle"]
+[node name="Card 4" type="Marker2D" parent="The Middle" unique_id=334349994]
 position = Vector2(100, 0)
 
-[node name="Card 5" type="Marker2D" parent="The Middle"]
+[node name="Card 5" type="Marker2D" parent="The Middle" unique_id=143607484]
 position = Vector2(200, 0)
 
-[node name="Dealer cards" type="Node2D" parent="."]
+[node name="Dealer cards" type="Node2D" parent="." unique_id=1695706067]
 position = Vector2(0, -225)
 rotation = 3.1415927
 
-[node name="D1" type="Marker2D" parent="Dealer cards"]
+[node name="D1" type="Marker2D" parent="Dealer cards" unique_id=2111841321]
 position = Vector2(50, 0)
 rotation = 3.1415925
 
-[node name="D2" type="Marker2D" parent="Dealer cards"]
+[node name="D2" type="Marker2D" parent="Dealer cards" unique_id=1341890761]
 position = Vector2(-50, 0)
 rotation = 3.1415925
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=934314329]
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=814821611]
