@@ -11,34 +11,34 @@ var d_value = 0
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		setup()
-		print("\n" + "Player" + "\n")
+		#print("\n" + "Player" + "\n")
 		var best_hand = check_hand(player)
 		
 		match best_hand:
 			"flush":
 				p_value = 9
-				print("Player has a flush!")
-				print_all_values(player[1])
+				#print("Player has a flush!")
+				#print_all_values(player[1])
 			"high":
 				p_value = 2
 		
-		print("\n" + "Dealer" + "\n")
+		#print("\n" + "Dealer" + "\n")
 		best_hand = check_hand(dealer)
 		
 		match best_hand:
 			"flush":
 				d_value = 9
-				print("Dealer has a flush!")
-				print_all_values(dealer[1])
+				#print("Dealer has a flush!")
+				#print_all_values(dealer[1])
 			"high":
 				d_value = 2
 func _ready() -> void:
 	setup()
-	print("\n" + "Player" + "\n")
+	#print("\n" + "Player" + "\n")
 	check_hand(player)
 	
-	print("\n" + "Dealer" + "\n")
-	check_hand(dealer)
+	#print("\n" + "Dealer" + "\n")
+	#check_hand(dealer)
 	
 		
 func setup() -> void:
@@ -69,10 +69,11 @@ func setup() -> void:
 		middle.append(card)
 	
 func check_hand(char_hand) -> String: # char hand is the hand of the player you want to check
+	print("unshuffled middle + player's hand")
 	hand = char_hand[0] + middle
 	print_all_values(hand)
-	sort(hand)
-	print_all_values(hand)
+	
+	
 	var flush = is_flush(hand, char_hand)
 	if flush:
 		return "flush"
@@ -105,8 +106,6 @@ func print_all_suits(arr) -> void: # use arrays with card objects only!
 func print_all_values(arr) -> void: # use arrays with card objects only!
 	for i in arr:
 		print(i.get_value())
-	
-func sort(arr) -> Array: # standard insertion sort, use arrays with card objects only!
-	var sorted = [arr[0]]
-	
-	return sorted
+
+func sort_card_array(array_to_sort):
+	pass
