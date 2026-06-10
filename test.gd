@@ -34,7 +34,7 @@ func _process(delta: float) -> void:
 				d_value = 2
 func _ready() -> void:
 	setup()
-	#print("\n" + "Player" + "\n")
+	print("\n" + "Player" + "\n")
 	check_hand(player)
 	
 	#print("\n" + "Dealer" + "\n")
@@ -71,10 +71,10 @@ func setup() -> void:
 func check_hand(char_hand) -> String: # char hand is the hand of the player you want to check
 	print("unshuffled middle + player's hand")
 	hand = char_hand[0] + middle
-	print_all_values(hand)
 	
 	
 	var flush = is_flush(hand, char_hand)
+	var straight = is_straight(hand, char_hand)
 	if flush:
 		return "flush"
 	return "high"
@@ -89,11 +89,22 @@ func is_flush(hand_to_check, og_hand) -> bool: # hand to check is the combo of t
 				biggest_cards.append(card)
 		if suit_for_flush > 4:
 			og_hand[1] = biggest_cards
-			return true 
+			return true
 		biggest_cards = []
 	return false
 	
 func is_straight(hand_to_check, og_hand) -> bool: # 
+	for i in range(len(hand_to_check)):
+		#print("I Cycle -> ", i)
+		var cur = hand_to_check[i].get_value()
+		for j in range(i, len(hand_to_check)):
+			#print("J iter -> ", j)
+			if cur + 1 == hand_to_check[j].get_value():
+				print("Next value == cur + 1")
+				print(cur, " >>> ", hand_to_check[j].get_value())
+			elif cur - 1 == hand_to_check[j].get_value():
+				print("Next value == cur - 1")
+				print(cur, " <<< ", hand_to_check[j].get_value())
 	return false
 	
 func is_any_pair() -> int:
@@ -106,6 +117,3 @@ func print_all_suits(arr) -> void: # use arrays with card objects only!
 func print_all_values(arr) -> void: # use arrays with card objects only!
 	for i in arr:
 		print(i.get_value())
-
-func sort_card_array(array_to_sort):
-	pass
