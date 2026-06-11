@@ -37,6 +37,12 @@ func _ready() -> void:
 	print("\n" + "Player" + "\n")
 	check_hand(player)
 	
+	var int_arr = convert_card_arr_to_int(player[0])
+	var str_arr = convert_card_arr_to_str(player[0])
+	
+	print(int_arr)
+	print(str_arr)
+	
 	#print("\n" + "Dealer" + "\n")
 	#check_hand(dealer)
 	
@@ -94,27 +100,23 @@ func is_flush(hand_to_check, og_hand) -> bool: # hand to check is the combo of t
 	return false
 	
 func is_straight(hand_to_check, og_hand) -> bool: # hand to check is the combo of the middle and a player's hand, og_hand is a player's hand
-	var check_for_straight = [] # an array that will be populated with all values that COULD make a straight, will have to check with another
-	print_all_values(hand_to_check)
-	for i in range(0, len(hand_to_check)):
-		#print("I Cycle -> ", i)
-		print("Cur card value >>> ", hand_to_check[i].get_value())
-		var cur = hand_to_check[i].get_value()
-		for j in range(i, len(hand_to_check)):
-			#print("J iter -> ", j)
-			if cur + 1 == hand_to_check[j].get_value():
-				#print("Next value == cur + 1")
-				print(cur, " >>> ", hand_to_check[j].get_value())
-				check_for_straight.append(hand_to_check[j])
-			elif cur - 1 == hand_to_check[j].get_value():
-				#print("Next value == cur - 1")
-				print(cur, " <<< ", hand_to_check[j].get_value())
-				check_for_straight.append(hand_to_check[j])
-	print_all_values(check_for_straight)
+	
 	return false
 	
 func is_any_pair() -> int:
 	return false
+
+func convert_card_arr_to_int(arr) -> Array:
+	var result = []
+	for i in arr:
+		result.append(i.get_value())
+	return result
+	
+func convert_card_arr_to_str(arr) -> Array:
+	var result = []
+	for i in arr:
+		result.append(i.get_suit())
+	return result
 
 func print_all_suits(arr) -> void: # use arrays with card objects only!
 	for i in arr:
