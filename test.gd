@@ -95,18 +95,19 @@ func is_flush(hand_to_check, og_hand) -> bool: # hand to check is the combo of t
 	
 func is_straight(hand_to_check, og_hand) -> bool: # hand to check is the combo of the middle and a player's hand, og_hand is a player's hand
 	var check_for_straight = [] # an array that will be populated with all values that COULD make a straight, will have to check with another
-	for i in range(len(hand_to_check)):
+	print_all_values(hand_to_check)
+	for i in range(0, len(hand_to_check)):
 		#print("I Cycle -> ", i)
 		print("Cur card value >>> ", hand_to_check[i].get_value())
 		var cur = hand_to_check[i].get_value()
 		for j in range(i, len(hand_to_check)):
 			#print("J iter -> ", j)
 			if cur + 1 == hand_to_check[j].get_value():
-				print("Next value == cur + 1")
+				#print("Next value == cur + 1")
 				print(cur, " >>> ", hand_to_check[j].get_value())
 				check_for_straight.append(hand_to_check[j])
 			elif cur - 1 == hand_to_check[j].get_value():
-				print("Next value == cur - 1")
+				#print("Next value == cur - 1")
 				print(cur, " <<< ", hand_to_check[j].get_value())
 				check_for_straight.append(hand_to_check[j])
 	print_all_values(check_for_straight)
