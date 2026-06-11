@@ -37,12 +37,6 @@ func _ready() -> void:
 	print("\n" + "Player" + "\n")
 	check_hand(player)
 	
-	var int_arr = convert_card_arr_to_int(player[0])
-	var str_arr = convert_card_arr_to_str(player[0])
-	
-	print(int_arr)
-	print(str_arr)
-	
 	#print("\n" + "Dealer" + "\n")
 	#check_hand(dealer)
 	
@@ -86,6 +80,7 @@ func check_hand(char_hand) -> String: # char hand is the hand of the player you 
 	return "high"
 
 func is_flush(hand_to_check, og_hand) -> bool: # hand to check is the combo of the middle and a player's hand, og_hand is a player's hand
+	# TO DO -> REMAKE THIS USING THE CONVERT ARR METHODS FOR SIMPLICITY/READABILITY SAKE 
 	for suit in suits:
 		var biggest_cards = []
 		var suit_for_flush = 0
@@ -100,7 +95,17 @@ func is_flush(hand_to_check, og_hand) -> bool: # hand to check is the combo of t
 	return false
 	
 func is_straight(hand_to_check, og_hand) -> bool: # hand to check is the combo of the middle and a player's hand, og_hand is a player's hand
+	var int_hand_arr = convert_card_arr_to_int(hand_to_check)
 	
+	if 1 in int_hand_arr: var has_ace = true
+	else: var has_ace = false
+	
+	int_hand_arr.sort()
+	for i in range(0, len(int_hand_arr)):
+		if i!= len(int_hand_arr) - 1 && int_hand_arr[i+1] - 1 == int_hand_arr[i]:
+			print(int_hand_arr[i], " >>> ", int_hand_arr[i+1])
+		
+	print(int_hand_arr)
 	return false
 	
 func is_any_pair() -> int:
