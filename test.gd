@@ -109,19 +109,7 @@ func is_straight(hand_to_check, og_hand) -> bool: # hand to check is the combo o
 			if int_hand_arr[i] not in straight_arr: straight_arr.append(int_hand_arr[i]) # adds current card value to arr if it isn't in there already
 			if int_hand_arr[i+1] not in straight_arr: straight_arr.append(int_hand_arr[i+1]) # adds next card value to arr if it isn't in there already
 	print(has_ace)
-	var avaliable_cards = len(straight_arr) # the number of cards that could be used for creation of a straight
-	print(avaliable_cards)
-	while avaliable_cards > 4:
-		print(straight_arr)
-		var i = 0
-		if straight_arr[i] + 1 != straight_arr[i + 1]:
-			avaliable_cards -= 1
-			print(straight_arr[i])
-			print(straight_arr[i+1])
-		i += 1
-		pass
-	if avaliable_cards:
-		return true
+	
 	return false
 	
 func is_any_pair() -> int:
