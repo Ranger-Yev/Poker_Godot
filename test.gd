@@ -32,6 +32,7 @@ func _process(delta: float) -> void:
 				#print_all_values(dealer[1])
 			"high":
 				d_value = 2
+
 func _ready() -> void:
 	setup()
 	print("\n" + "Player" + "\n")
@@ -69,7 +70,6 @@ func setup() -> void:
 		middle.append(card)
 	
 func check_hand(char_hand) -> String: # char hand is the hand of the player you want to check
-	print("unshuffled middle + player's hand")
 	hand = char_hand[0] + middle
 	
 	
@@ -80,7 +80,7 @@ func check_hand(char_hand) -> String: # char hand is the hand of the player you 
 	return "high"
 
 func is_flush(hand_to_check, og_hand) -> bool: # hand to check is the combo of the middle and a player's hand, og_hand is a player's hand
-	# TO DO -> REMAKE THIS USING THE CONVERT ARR METHODS FOR SIMPLICITY/READABILITY SAKE 
+	# TO DO -> REMAKE THIS USING THE CONVERT ARR METHODS FOR SIMPLICITY/READABILITY SAKE (Should test if it's actually worth it).
 	for suit in suits:
 		var biggest_cards = []
 		var suit_for_flush = 0
@@ -96,6 +96,7 @@ func is_flush(hand_to_check, og_hand) -> bool: # hand to check is the combo of t
 	
 func is_straight(hand_to_check, og_hand) -> bool: # hand to check is the combo of the middle and a player's hand, og_hand is a player's hand
 	var int_hand_arr = convert_card_arr_to_int(hand_to_check)
+	var straight_arr = []
 	
 	if 1 in int_hand_arr: var has_ace = true
 	else: var has_ace = false
@@ -103,9 +104,16 @@ func is_straight(hand_to_check, og_hand) -> bool: # hand to check is the combo o
 	int_hand_arr.sort()
 	for i in range(0, len(int_hand_arr)):
 		if i!= len(int_hand_arr) - 1 && int_hand_arr[i+1] - 1 == int_hand_arr[i]:
-			print(int_hand_arr[i], " >>> ", int_hand_arr[i+1])
-		
-	print(int_hand_arr)
+			#print(int_hand_arr[i], " >>> ", int_hand_arr[i+1])
+			if int_hand_arr[i] not in straight_arr: straight_arr.append(int_hand_arr[i])
+			if int_hand_arr[i+1] not in straight_arr: straight_arr.append(int_hand_arr[i+1])
+	if len(straight_arr) == 5:
+		print("5 cards")
+		print(straight_arr)
+	elif len(straight_arr) > 5:
+		print("5+ cards")
+		print(straight_arr)
+	
 	return false
 	
 func is_any_pair() -> int:
