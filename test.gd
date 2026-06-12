@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 				p_value = 2
 		
 		#print("\n" + "Dealer" + "\n")
-		best_hand = check_hand(dealer)
+		#best_hand = check_hand(dealer)
 		
 		match best_hand:
 			"flush":
@@ -97,23 +97,31 @@ func is_flush(hand_to_check, og_hand) -> bool: # hand to check is the combo of t
 func is_straight(hand_to_check, og_hand) -> bool: # hand to check is the combo of the middle and a player's hand, og_hand is a player's hand
 	var int_hand_arr = convert_card_arr_to_int(hand_to_check)
 	var straight_arr = []
+	var has_ace = false
 	
-	if 1 in int_hand_arr: var has_ace = true
-	else: var has_ace = false
+	if 1 in int_hand_arr: 
+		has_ace = true
 	
 	int_hand_arr.sort()
 	for i in range(0, len(int_hand_arr)):
-		if i!= len(int_hand_arr) - 1 && int_hand_arr[i+1] - 1 == int_hand_arr[i]:
-			#print(int_hand_arr[i], " >>> ", int_hand_arr[i+1])
-			if int_hand_arr[i] not in straight_arr: straight_arr.append(int_hand_arr[i])
-			if int_hand_arr[i+1] not in straight_arr: straight_arr.append(int_hand_arr[i+1])
-	if len(straight_arr) == 5:
-		print("5 cards")
+		if i != len(int_hand_arr) - 1 && int_hand_arr[i+1] - 1 == int_hand_arr[i]: # checks if the next and current card values are sequential (9 and 10 would return true, 9 and 11 false). Also prevents going past the last index in the array.
+			print(int_hand_arr[i], " >>> ", int_hand_arr[i+1])
+			if int_hand_arr[i] not in straight_arr: straight_arr.append(int_hand_arr[i]) # adds current card value to arr if it isn't in there already
+			if int_hand_arr[i+1] not in straight_arr: straight_arr.append(int_hand_arr[i+1]) # adds next card value to arr if it isn't in there already
+	print(has_ace)
+	var avaliable_cards = len(straight_arr) # the number of cards that could be used for creation of a straight
+	print(avaliable_cards)
+	while avaliable_cards > 4:
 		print(straight_arr)
-	elif len(straight_arr) > 5:
-		print("5+ cards")
-		print(straight_arr)
-	
+		var i = 0
+		if straight_arr[i] + 1 != straight_arr[i + 1]:
+			avaliable_cards -= 1
+			print(straight_arr[i])
+			print(straight_arr[i+1])
+		i += 1
+		pass
+	if avaliable_cards:
+		return true
 	return false
 	
 func is_any_pair() -> int:
