@@ -75,6 +75,7 @@ func check_hand(char_hand) -> String: # char hand is the hand of the player you 
 	
 	var flush = is_flush(hand, char_hand)
 	var straight = is_straight(hand, char_hand)
+	
 	if flush:
 		return "flush"
 	return "high"
@@ -109,6 +110,8 @@ func is_straight(hand_to_check, og_hand) -> bool: # hand to check is the combo o
 			if int_hand_arr[i] not in straight_arr: straight_arr.append(int_hand_arr[i]) # adds current card value to arr if it isn't in there already
 			if int_hand_arr[i+1] not in straight_arr: straight_arr.append(int_hand_arr[i+1]) # adds next card value to arr if it isn't in there already
 	print(has_ace)
+	print(straight_arr)
+	
 	
 	return false
 	
