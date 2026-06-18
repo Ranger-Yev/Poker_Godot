@@ -7,6 +7,7 @@ var middle = []
 var hand = []
 var p_value = 0
 var d_value = 0
+var ALLVALUES = range(1,14)
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
@@ -112,6 +113,11 @@ func is_straight(hand_to_check, og_hand) -> bool: # hand to check is the combo o
 	print(has_ace)
 	print(straight_arr)
 	
+	for i in range(0, 14):
+		if i < 10:
+			print(range(i, i + 5))
+		else:
+			print(range(i, 14), range(1,(1 + 5) - len(range(i,14))))
 	
 	return false
 	
